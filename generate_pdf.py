@@ -1,14 +1,15 @@
-import os
-from fpdf import FPDF
+import os                # Built-in module for working with file and directory paths
+from fpdf import FPDF    # fpdf2 library used to generate formatted PDF documents in Python
 
-OUTPUT_PDF = "/Users/rkumar/workspace/python_crash_course/python_work/CS6886W_Assignment1_Colab_TF_and_GitHub_Guide.pdf"
-SRC_DIR = "/Users/rkumar/workspace/python_crash_course/python_work/cs6886w_assignment1_vgg6"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_PDF = os.path.join(BASE_DIR, "CS6886W_Assignment1_Colab_TF_and_GitHub_Guide.pdf")
+SRC_DIR = BASE_DIR
 
 
 def read_file_content(rel_path: str) -> str:
     full_path = os.path.join(SRC_DIR, rel_path)
     with open(full_path, "r", encoding="utf-8") as f:
-        return f.read()
+        return f.read().replace("\u2013", "-").replace("\u2014", "--")
 
 
 class AssignmentPDF(FPDF):
@@ -86,6 +87,7 @@ class AssignmentPDF(FPDF):
                 safe_line if safe_line else " ",
                 fill=True,
                 border="LR",
+                align="L",
                 new_x="LMARGIN",
                 new_y="NEXT",
             )

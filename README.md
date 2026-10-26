@@ -92,10 +92,30 @@ python -m src.evaluate \
 ### C. Run W&B Hyperparameter Sweeps (Question 2 & Question 3)
 To run automated hyperparameter sweeps across activations, optimizers, batch sizes, learning rates, and epochs and generate the W&B Parallel Coordinates plot, Scatter plot, and Training/Validation curves:
 
+**In Terminal:**
 ```bash
 wandb login
 python -m src.sweep --project iitm-cs6886w-vgg6-cifar10 --count 25
 ```
+
+**In Google Colab Notebook Cell:**
+```python
+!python -m src.sweep --project cs6886w-vgg6-cifar10 --count 20
+```
+
+### D. How to View the Exact Assignment Plots in Weights & Biases (Question 3 Guide)
+
+1. **Multi-Run Overlay Curves vs. Single Run View (`train_acc`, `train_loss`, `val_acc`, `val_loss`)**:
+   - If you click inside a **single run** (e.g., `<- act_gelu_bs_128_opt_nadam_lr_0.001_wd_0.0001_bn_True`), W&B only displays a single blue line for that individual run.
+   - To see all configurations overlaid together as multi-colored curves (like the Assignment sample PDF), click the **Back arrow (`<-`)** in the top-left corner or click the project name (`cs6886w-vgg6-cifar10`) in the top navigation bar to return to the **Project Workspace**.
+
+2. **Parallel Coordinates Plot & `val_acc v. created` Scatter Plot**:
+   - These two summary panels are **Sweep panels** generated automatically when you run:
+     ```bash
+     !python -m src.sweep --project cs6886w-vgg6-cifar10 --count 20
+     ```
+   - In your W&B dashboard, click the **Sweeps** icon (broom/tuning icon on the far-left sidebar) and click your active Sweep. W&B automatically displays both the **Parallel Coordinates Plot** and the **`val_acc v. created` Scatter Plot** at the top of the Sweep workspace.
+   - **Manual Option on Main Project Page**: You can also add the Parallel Coordinates plot manually on the main Project page by clicking the blue **`+ Add panels`** button (top-right) -> selecting **Parallel Coordinates** -> and adding the columns: `activation`, `batch_norm`, `batch_size`, `epochs`, `learning_rate`, `momentum`, `optimizer`, `weight_decay`, and `val_acc`.
 
 ---
 
