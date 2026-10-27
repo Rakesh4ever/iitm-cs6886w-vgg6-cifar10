@@ -295,13 +295,18 @@ if __name__ == "__main__":
     args = parse_args()
     cfg = vars(args)
 
-    # If `--use_wandb` flag is passed, initialize a W&B run with a descriptive name
+    # If `--use_wandb` flag is passed, initialize a W&B run with a descriptive name.
+    # Wrapped in try/except so training still proceeds locally even if W&B login was skipped.
     if cfg["use_wandb"] and wandb is not None:
         run_name = (
             f"act_{cfg['activation']}_bs_{cfg['batch_size']}_opt_{cfg['optimizer']}_"
             f"lr_{cfg['learning_rate']}_wd_{cfg['weight_decay']}_bn_{cfg['batch_norm']}"
         )
-        wandb.init(project=cfg["wandb_project"], name=run_name, config=cfg)
+        try:
+            wandb.init(project=cfg["wandb_project"], name=run_name, config=cfg)
+        except Exception as e:
+            print(f"[Warning] W&B initialization skipped ({e}). Continuing training locally...")
+            cfg["use_wandb"] = False
 
     res = train_and_evaluate(cfg)
     print(f"\n[ Summary ] Best Val Accuracy: {res['best_val_acc']:.2f}% | Test Top-1 Accuracy: {res['test_top1_acc']:.2f}%")
