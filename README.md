@@ -2,7 +2,7 @@
 ## Exploring VGG6 on CIFAR-10 in TensorFlow
 
 - **GitHub Repository Link**: [https://github.com/Rakesh4ever/iitm-cs6886w-vgg6-cifar10](https://github.com/Rakesh4ever/iitm-cs6886w-vgg6-cifar10)
-- **Submission Report PDF**: [`CS6886W_Assignment1_Submission_Report.pdf`](CS6886W_Assignment1_Submission_Report.pdf)
+- **Submission Report PDF**: ([View on GitHub](https://github.com/Rakesh4ever/iitm-cs6886w-vgg6-cifar10/blob/main/cs25m530_Rakesh_Kumar.pdf))
 
 This repository contains a clean, modular, and reproducible implementation of the **VGG6** Convolutional Neural Network trained and evaluated on the **CIFAR-10** dataset using **TensorFlow (Keras)** and **Weights & Biases (W&B)**.
 
@@ -24,7 +24,7 @@ iitm-cs6886w-vgg6-cifar10/
 ├── driver.ipynb          # Interactive Google Colab / VS Code driver notebook (Steps 1 to 6)
 ├── checkpoints/          # Saved best model weights (.weights.h5) and full trained model (.keras)     
 ├── requirements.txt      # Pinned Python dependency versions
-├── CS6886W_Assignment1_Submission_Report.pdf  # Final report with detailed answers, plots & GitHub link
+├── cs25m530_Rakesh_Kumar.pdf  # Final report with detailed answers, plots & GitHub link
 └── README.md             # Reproducibility guide & analysis of performance across configurations
 ```
 
