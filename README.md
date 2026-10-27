@@ -22,8 +22,7 @@ iitm-cs6886w-vgg6-cifar10/
 │   ├── evaluate.py       # Standalone evaluation script for Top-1 Test/Val accuracy & per-class accuracy
 │   └── sweep.py          # W&B hyperparameter sweep runner for automated parallel-coordinates & curves
 ├── driver.ipynb          # Interactive Google Colab / VS Code driver notebook (Steps 1 to 6)
-├── checkpoints/          # Saved best model weights (.weights.h5) and full trained model (.keras)
-├── outputs/              # Training/validation loss & accuracy plots (.png) and JSON metrics
+├── checkpoints/          # Saved best model weights (.weights.h5) and full trained model (.keras)     
 ├── requirements.txt      # Pinned Python dependency versions
 ├── CS6886W_Assignment1_Submission_Report.pdf  # Final report with detailed answers, plots & GitHub link
 └── README.md             # Reproducibility guide & analysis of performance across configurations
@@ -55,7 +54,7 @@ To guarantee reproducible train/validation splits, weight initializations, and m
 
 ## 3. Exact Instructions to Re-Run the Code & Reproduce Results (Question 5b)
 
-University staff and evaluators can reproduce all results using **either** the interactive **`driver.ipynb`** notebook (in Google Colab or VS Code) **or** standard command-line execution.
+Evaluators can reproduce all results using **either** the interactive **`driver.ipynb`** notebook (in Google Colab or VS Code) **or** standard command-line execution.
 
 ### Option A: Re-Running Step-by-Step via `driver.ipynb` (Google Colab / VS Code Colab Extension)
 
