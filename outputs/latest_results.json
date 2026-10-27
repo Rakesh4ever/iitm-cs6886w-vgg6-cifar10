@@ -1,0 +1,19 @@
+{
+  "config": {
+    "activation": "gelu",
+    "optimizer": "nadam",
+    "batch_size": 128,
+    "epochs": 80,
+    "learning_rate": 0.001,
+    "momentum": 0.9,
+    "weight_decay": 0.0001,
+    "dropout_rate": 0.2,
+    "batch_norm": true,
+    "augment": true,
+    "seed": 42
+  },
+  "best_val_acc": 88.94,
+  "test_top1_acc": 88.45,
+  "test_loss": 0.358
+}
+
